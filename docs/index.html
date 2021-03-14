@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="css/main.min.css">
+    
+    <title>Doge420</title>
+</head>
+<body>
+<main>
+    
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand mx-auto" href="#">
+        <img src="./img/doge420logo.png" width="30" height="30" class="d-inline-block align-top" alt="Lord Doge smoking a blunt">
+        Doge420
+      </a>
+    </nav>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="display-1">Doge420</h1>
+                <p class="lead text-muted">My teacher said to my I'm a failure, that I'll never amount to anything. I scoffed at him. Shocked, my teacher asked what's so funny, my future is on the line. "Well...you see professor" I say as the teacher prepares to laugh at my answer, rebuttal at hand. "I watch Rick and Morty." The class is shocked, they merely watch pleb shows like the big bang theory to feign intelligence, not grasping the humor. "...how? I can't even understand it's sheer nuance and subtlety." "Well you see...WUBBA LUBBA DUB DUB!" One line student laughs in the back, I turn to see a who this fellow genius is. It's none other than Albert Einstein.</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Do Nothing</a>
+                    <a href="#" class="btn btn-secondary my-2">Do Nothing, in Grey</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-secondary text-light" style="padding:60px;">
+        <div class="container">
+      <div class="mb-3">
+        <h2 class='display-3'>Analyse Compound</h2><small>*Snorts Cocoa Cola*</small>
+        <p >Ok so people can’t have opinions, the people on this sub are the reason there are instructions on toothpaste. Everyone here are cancerous sheep who have been mind controlled to upvoting if they see a 69, 420, Instagram Fortnite and TikTok bad Minecraft good. I’m not saying I like any of these more than Minecraft but people are allowed to have opinions. So next time you call someone a normie realize who the real normie is🤡</p>
+        <div class='col-12'>
+        <form>
+        <label for="inputName" class="form-label">Compound Name</label>
+        <input type="text" class="form-control" id="inputName" aria-describedby="Compound Name">
+      <button type="button" class="btn btn-primary" onclick="get_smiles_from_element_text('inputName')">Get SMILES</button>
+        </form>
+    </div>
+    <div class='col-12'>
+        <form>
+        <label for="inputSMILES" class="form-label">Compound SMILES</label>
+        <input type="text" class="form-control" id="inputSMILES" aria-describedby="Compound SMILES">
+      <button type="button" class="btn btn-primary" onclick="analyse_me_senpai('inputSMILES')">Analyse</button>
+        </form></div>
+    
+    
+    
+    </div></div></section>
+
+    <section style="padding:60px;">
+    <div class='container'>
+    	<div class='row'><h2 class="display-3">Workbench</h2></div>
+    	<div class='row'>
+    	<div class='col-6'>
+    	<canvas id="draw-canvas-2" class="w-100"></canvas>
+    	</div>
+    	<div class="col-6">
+    		<table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody id='analyse_table'>
+        <!--<tr><td scope="row">Exact M.W.</td><td id="exactmw">-</td></tr>
+        <tr><td scope="row">CrippenMR</td><td id='CrippenMR'>-</td></tr>
+        <tr><td scope="row">CrippenClogP</td><td id='CrippenClogP'>-</td></tr>-->
+      </tbody>
+    </table>
+    	</div>
+    </div>
+    </div></section>
+
+</main>
+<script src="./js/main.min.js"></script>
+<script src="./js/RDKit_minimal.js"></script>
+</body>
+</html>
