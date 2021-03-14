@@ -4,7 +4,7 @@ After releasing v1 of Curie-Web, Lord Shibe decided in-browser processing was th
 
 ## What Works?
 
-* Fetching SMLILES from PubChem by Name
+* Fetching SMILES from PubChem by Name
 * Generating Image
 * Calculating Properties
 * Generating AutoDock PDBQTs
