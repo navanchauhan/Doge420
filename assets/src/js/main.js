@@ -43,7 +43,8 @@ function draw_me_like_one_of_your_french_girls(mol){
 	var dest = document.getElementById("draw-output");
 	var svg = mol.get_svg();
 	dest.outerHTML = "<div id='drawing-1'>" + svg + "</div>";
-	console.log(svg)
+	document.getElementById('drawing-1').children[0].setAttribute("height", "100%");
+	document.getElementById('drawing-1').children[0].setAttribute("width", "100%");
 }
 
 
