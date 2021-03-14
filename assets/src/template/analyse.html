@@ -1,26 +1,33 @@
 <section style="padding:60px;">
-<div class='container'>
-	<div class="grid">
-	<div class='row'><h2 class="display-3">Workbench</h2></div>
-	<div class='row'>
-	<div class='col-md-6'>
-	<!--<canvas id="draw-canvas-2" class="w-100"></canvas>-->
-	<div id='draw-output'></div>
-	</div>
-	<div class="col-md-6 col-sm-4 table-responsive">
-		<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Property</th>
-      <th scope="col">Value</th>
-    </tr>
-  </thead>
-  <tbody id='analyse_table'>
-    <!--<tr><td scope="row">Exact M.W.</td><td id="exactmw">-</td></tr>
+    <div class='container'>
+        <div class="grid">
+            <div class='row'>
+                <h2 class="display-3">Workbench</h2>
+            </div>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <!--<canvas id="draw-canvas-2" class="w-100"></canvas>-->
+                    <div id='draw-output'></div>
+                </div>
+                <div class="col-md-6 col-sm-4 table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Property</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id='analyse_table'>
+                            <!--<tr><td scope="row">Exact M.W.</td><td id="exactmw">-</td></tr>
     <tr><td scope="row">CrippenMR</td><td id='CrippenMR'>-</td></tr>
     <tr><td scope="row">CrippenClogP</td><td id='CrippenClogP'>-</td></tr>-->
-  </tbody>
-</table>
-	</div>
-</div></div>
-</div></section>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+            	<button class="btn btn-primary" type="button" onclick="download_pdbqt()" id="download-pdbqt" disabled>Download PDBQT</button>
+            </div>
+        </div>
+    </div>
+</section>

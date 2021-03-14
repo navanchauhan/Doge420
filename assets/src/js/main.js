@@ -1,22 +1,34 @@
 // import Popper
-//= ../../../node_modules/popper.js/dist/umd/popper.js
+// ../../../node_modules/popper.js/dist/umd/popper.js
 
 // import required js-files Bootstrap 5
-//= ../../../node_modules/bootstrap/js/dist/alert.js
-//= ../../../node_modules/bootstrap/js/dist/button.js
-//= ../../../node_modules/bootstrap/js/dist/carousel.js
-//= ../../../node_modules/bootstrap/js/dist/collapse.js
-//= ../../../node_modules/bootstrap/js/dist/dropdown.js
-//= ../../../node_modules/bootstrap/js/dist/modal.js
-//= ../../../node_modules/bootstrap/js/dist/popover.js
-//= ../../../node_modules/bootstrap/js/dist/scrollspy.js
-//= ../../../node_modules/bootstrap/js/dist/tab.js
-//= ../../../node_modules/bootstrap/js/dist/toast.js
-//= ../../../node_modules/bootstrap/js/dist/tooltip.js
+// ../../../node_modules/bootstrap/js/dist/alert.js
+// ../../../node_modules/bootstrap/js/dist/button.js
+// ../../../node_modules/bootstrap/js/dist/carousel.js
+// ../../../node_modules/bootstrap/js/dist/collapse.js
+// ../../../node_modules/bootstrap/js/dist/dropdown.js
+// ../../../node_modules/bootstrap/js/dist/modal.js
+// ../../../node_modules/bootstrap/js/dist/popover.js
+// ../../../node_modules/bootstrap/js/dist/scrollspy.js
+// ../../../node_modules/bootstrap/js/dist/tab.js
+// ../../../node_modules/bootstrap/js/dist/toast.js
+// ../../../node_modules/bootstrap/js/dist/tooltip.js
+
 
 function bruh_moment(){
 	alert('this is a bruh moment')
 }
+
+const downloadToFile = (content, filename, contentType) => {
+  const a = document.createElement('a');
+  const file = new Blob([content], {type: contentType});
+  
+  a.href= URL.createObjectURL(file);
+  a.download = filename;
+  a.click();
+
+	URL.revokeObjectURL(a.href);
+};
 
 function get_smiles_from_element_text(el_id){
 	var inputVal = document.getElementById(el_id).value;
@@ -33,6 +45,7 @@ function get_smiles_from_element_text(el_id){
 		bruh_moment()
 		throw err });
 }
+
 
 
 function draw_me_like_one_of_your_french_girls(mol){
@@ -65,9 +78,9 @@ function calculate_and_disperse(mol){
 		for (let i = 0; i < keys.length; i++) {
 			const key = keys[i];
 			if(shy_values_do_not_show.indexOf(key) !== -1){
-        		console.log("skipping")
+        		//console.log("skipping")
     		} else{
-				console.log(key, descrs[key]);
+				//console.log(key, descrs[key]);
 				var newRow = tableRef.insertRow(-1);
 			  	var newCell_label = newRow.insertCell(0);
 			  	var newCell_value = newRow.insertCell(-1);
@@ -78,8 +91,26 @@ function calculate_and_disperse(mol){
 			}
 		}
 	
+}
 
-
+function convert_me_senpai(smiles) {
+	var OpenBabel = OpenBabelModule();
+	OpenBabel.onRuntimeInitialized = function() {
+		var conv = new OpenBabel.ObConversionWrapper();
+		try {
+			var inData = smiles;  
+			conv.setInFormat('', 'smiles'); 
+			var mol = new OpenBabel.OBMol();
+			conv.readString(mol, inData);
+			conv.setOutFormat('', 'pdbqt');
+			var outData = conv.writeString(mol, false);
+			//console.log(outData);
+			document.getElementById('download-pdbqt').disabled=false;
+			return outData;
+		} finally {
+			conv.delete();  // free ObConversionWrapper instance
+		}
+	}
 }
 
 function analyse_me_senpai(smile_pwiz) {
@@ -87,5 +118,21 @@ function analyse_me_senpai(smile_pwiz) {
 	var mol = Module.get_mol(smiles);
 	draw_me_like_one_of_your_french_girls(mol);
 	calculate_and_disperse(mol);
+	smiles_text = convert_me_senpai(smiles);
+}
+
+function download_pdbqt(){
+	if (document.getElementById("inputName").value === ""){
+		var fname = "compound.pdbqt"
+	} else {
+		var fname = `${document.getElementById("inputName").value}.pdbqt`
+	}
+	try {
+			//var smiles_text = convert_me_senpai(document.getElementById("inputSMILES").value)
+			downloadToFile(smiles_text,fname,"chemical/x-pdbqt")
+		} catch(err) {
+			console.error(err)
+			bruh_moment()
+		}
 }
 

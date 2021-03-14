@@ -5,7 +5,7 @@ var path = {
     build: {
         html: 'assets/build/',
         js: 'assets/build/js/',
-        wasm: 'assets/build/js',
+        wasm: 'assets/build/js/',
         css: 'assets/build/css/',
         img: 'assets/build/img/',
         fonts: 'assets/build/fonts/'
@@ -16,7 +16,7 @@ var path = {
         style: 'assets/src/style/main.scss',
         img: 'assets/src/img/**/*.*',
         fonts: 'assets/src/fonts/**/*.*',
-        wasm: 'assets/src/js/*.wasm'
+        wasm: 'assets/src/js/*.*'
     },
     watch: {
         html: 'assets/src/**/*.html',
