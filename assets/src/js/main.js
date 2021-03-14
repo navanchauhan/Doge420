@@ -38,12 +38,19 @@ function get_smiles_from_element_text(el_id){
 function draw_me_like_one_of_your_french_girls(mol){
 	
 	mol.condense_abbreviations();
-	var canvas = document.getElementById("draw-canvas-2");
-	mol.draw_to_canvas(canvas, -1, -1);
+	//var canvas = document.getElementById("draw-canvas-2");
+	//mol.draw_to_canvas(canvas, -1, -1);
+	var dest = document.getElementById("draw-output");
+	var svg = mol.get_svg();
+	dest.outerHTML = "<div id='drawing-1'>" + svg + "</div>";
+	console.log(svg)
 }
 
 
 function calculate_and_disperse(mol){
+	const shy_values_do_not_show = ["NumUnspecifiedAtomStereoCenters","NumAliphaticHeterocycles",
+	"NumSaturatedHeterocycles","NumAromaticHeterocycles","NumAmideBonds","NumAromaticRings","NumAliphaticRings"
+	,"NumSaturatedRings","NumSpiroAtoms","NumBridgeheadAtoms","NumAtomStereoCenters"]
 	try {
 		var descrs = JSON.parse(mol.get_descriptors());
 	} catch(err) {
@@ -55,15 +62,19 @@ function calculate_and_disperse(mol){
 	let tableRef = document.getElementById("analyse_table");
 	const keys = Object.keys(descrs);
 		for (let i = 0; i < keys.length; i++) {
-		  const key = keys[i];
-		  console.log(key, descrs[key]);
-		  var newRow = tableRef.insertRow(-1);
-	  	var newCell_label = newRow.insertCell(0);
-	  	var newCell_value = newRow.insertCell(-1);
-	  	var newText_label = document.createTextNode(key);
-	  	var newText_value = document.createTextNode(descrs[key]);
-	  	newCell_label.appendChild(newText_label);
-	  	newCell_value.appendChild(newText_value);
+			const key = keys[i];
+			if(shy_values_do_not_show.indexOf(key) !== -1){
+        		console.log("skipping")
+    		} else{
+				console.log(key, descrs[key]);
+				var newRow = tableRef.insertRow(-1);
+			  	var newCell_label = newRow.insertCell(0);
+			  	var newCell_value = newRow.insertCell(-1);
+			  	var newText_label = document.createTextNode(key);
+			  	var newText_value = document.createTextNode(descrs[key]);
+			  	newCell_label.appendChild(newText_label);
+			  	newCell_value.appendChild(newText_value);
+			}
 		}
 	
 
