@@ -44,10 +44,28 @@ function draw_me_like_one_of_your_french_girls(mol){
 
 
 function calculate_and_disperse(mol){
-	var descrs = JSON.parse(mol.get_descriptors());
-	document.getElementById('exactmw').textContent = descrs["exactmw"];
-	document.getElementById('CrippenMR').textContent = descrs["CrippenMR"];
-	document.getElementById('CrippenClogP').textContent = descrs["CrippenClogP"];
+	try {
+		var descrs = JSON.parse(mol.get_descriptors());
+	} catch(err) {
+		alert("oo wee, failed to calculate descriptors senpai")
+	}
+	//document.getElementById('exactmw').textContent = descrs["exactmw"];
+	//document.getElementById('CrippenMR').textContent = descrs["CrippenMR"];
+	//document.getElementById('CrippenClogP').textContent = descrs["CrippenClogP"];
+	let tableRef = document.getElementById("analyse_table");
+	const keys = Object.keys(descrs);
+		for (let i = 0; i < keys.length; i++) {
+		  const key = keys[i];
+		  console.log(key, descrs[key]);
+		  var newRow = tableRef.insertRow(-1);
+	  	var newCell_label = newRow.insertCell(0);
+	  	var newCell_value = newRow.insertCell(-1);
+	  	var newText_label = document.createTextNode(key);
+	  	var newText_value = document.createTextNode(descrs[key]);
+	  	newCell_label.appendChild(newText_label);
+	  	newCell_value.appendChild(newText_value);
+		}
+	
 
 
 }
