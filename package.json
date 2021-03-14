@@ -1,12 +1,12 @@
 {
-  "name": "project-on-bootstrap-5",
-  "version": "1.0.0",
-  "description": "bootstrap-5",
-  "author": "pabloNAX",
+  "name": "Doge420",
+  "version": "0.0.7",
+  "description": "Lord Shibe doing coca cola and snorting DogeCoin",
+  "author": "navanchauhan",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:PabloNAX/Bootstrap-5-starter-boilerplate-with-Gulp.git"
+    "url": "git@github.com:navanchauhan/Doge420.git"
   },
   "dependencies": {
     "bootstrap": "^5.0.0-alpha1",
