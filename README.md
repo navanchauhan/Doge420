@@ -24,3 +24,7 @@ After releasing v1 of Curie-Web, Lord Shibe decided in-browser processing was th
 
 * RDKitJS
 * OpenBabelJS
+
+## Installing
+ 
+????? It is just plain ol' HTML+JS+CSS in the docs folder
